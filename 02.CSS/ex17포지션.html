@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 2000px;
+        }
+        #parent{
+            width:200px;
+            height: 600px;
+            background-color: lightgray;
+            /* 부모요소에 position속성이 정의되어 있는 경우에
+            자식요소가 움직이는 위치의 기준은 부모요소이다 */
+            /* position값은 static을 제외한 나머지 */
+            position: relative;
+            overflow: hidden;
+            /* overflow: 부모에서 벗어난 부분은 잘라짐 */
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+        .child1{
+            background-color: #ff4949;
+            /* relative: 현재 위치에서 이동하는 속성 */
+            /* apsolute: 상위문서(body)를 기준으로 움직이는 속성 */
+           /* fixed: 상위문서를 기준으로 움직이는 속성
+                + 이동한 위치에서 고정
+                + 스크롤(body height:2000px) 위아래 움직일 때 따라다님 */
+           position: fixed;
+           top: 0;
+           left: 0;
+        }
+        .child2{
+            background-color: #f9ca24;
+        }
+        .child3{
+            background-color: #0984e3;
+        }
+        .chlid4{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div id="parent">
+    <div class="box child1"></div>
+    <div class="box child2" id="child2"></div>
+    <div class="box child3" id="child3"></div>
+    <div class="child4">
+        <a href="#child2">Top</a>
+    </div>
+   </div> 
+</body>
+</html>

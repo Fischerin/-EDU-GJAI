@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- table
+    row: 3
+    column: 2 
+    table>tr*2>td*3
+    ctl+space
+    첫번째 row는 헤더일 수 있다.
+    -->
+
+    <table border="1px solid black">
+
+        <!-- caption은 테이블의 제목 -->
+
+    <caption>메뉴판</caption>
+
+        <tr>
+            <th bgcolor="lightpink" colspan="2">메뉴</th>
+            <!-- 옆 칸 까지 침범 colspan="몇 칸" -->
+        </tr>
+        <tr>
+            <td>아메리카노</td>
+            <td rowspan="2">3500</td>
+            <!-- 옆 줄 까지 침범 colspan="몇 줄" -->
+        </tr>
+        <tr>
+            <td>카페라떼</td>
+        </tr>
+    </table>
+
+</br>
+</br>
+
+<table border="1px solid skyblue">
+    <tr bgcolor="lightgray">
+        <th>이름</th>
+        <th colspan="2">주소/MBTI</th>
+        <th>비고</th>
+    </tr>
+    <tr>
+        <td>강유빈</td>
+        <td>문경</td>
+        <td>INFJ</td>
+        <td rowspan="5"></td>
+    </tr>
+    <tr>
+        <td>김도운</td>
+        <td>광주</td>
+        <td>ESFP</td>
+    </tr>
+    <tr>
+        <td>송솔</td>
+        <td>광주</td>
+        <td>INFP</td>
+    </tr>
+    <tr>
+        <td>송민아</td>
+        <td>광주</td>
+        <td>INFP</td>
+    </tr>
+
+    <tr>
+        <td>최병민</td>
+        <td>광주</td>
+        <td>INTP</td>
+    </tr>
+</table>
+
+</body>
+</html>

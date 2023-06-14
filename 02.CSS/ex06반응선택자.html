@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* :hover 마우스를 올렸을 때 적용 */
+        span:hover{
+            color:red;
+        }
+        span:active{
+            color: blue;
+        }
+
+        .answer{
+            /* color: white; */
+            display: none;
+        }
+        /* 문제에 마우스를 가져다 댔을 때, 정답이 나오게 해주세요! */
+        .question:hover + .answer{
+            color: coral;
+            display: block;
+            /* 가로 공간을 다 차지하고 있기 때문에 가로에 대면 답이 나옴 */
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <span>Hello World!</span>
+    <!-- ide:언어들을 다루기위한 도구 -->
+    <p class="question">Q.내가 좋아하는 음식은?</p>
+    <P class="answer">A.돈까스, 제육, 볶음밥</P>
+
+    <p class="question">Q.내 MBTI는?</p>
+    <P class="answer">A.INFJ</P>
+</body>
+</html>

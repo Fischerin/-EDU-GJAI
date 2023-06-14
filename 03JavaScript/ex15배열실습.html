@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fruits = ["apple", "avocado", "banana", "blueberry", "cherry", "dragon fruit",
+            "fig", "grape", "kiwi", "lime", "mango", "orange", "oriental melon", "pear",
+            "peach", "pineapple", "shine muscat", "strawberry", "tomato",
+            "water melon", "yuja"];
+
+            fruits.pop();
+            console.log(fruits);
+
+            fruits.push("grapefruit");
+            console.log(fruits);
+
+            fruits[0] = "cherry tomato";
+            fruits[1] = "pine nut";
+            fruits[2] = "korean blackberry";
+            console.log(fruits);
+
+            console.log(fruits.includes("orange"));
+
+
+            for(let i = 0; i<=fruits.length; i++){
+                if(fruits[i] == "kiwi"){
+                    console.log("데이터가 있습니다");
+                }
+            }
+            // 계속 실수 let = i(x)
+            // let i = 0;
+
+
+            fruits.splice(19, 1, "melon");
+            console.log(fruits);
+
+            fruits.splice(9, 3);
+            console.log(fruits);
+
+            fruits.splice(13, fruits.length);
+            console.log(fruits);
+
+            // var fruits = [10, 11, 12];
+            // var fruis2 = fruits.slice(3);
+            // console.log(fruis2);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        p {
+            font-weight: bold;
+            color: red;
+        }
+
+        /* 왜 p태그 걸면 제일 아랫줄만 적용되는지? 
+        <p>태그가 걸려있는 문장  */
+
+    </style>
+</head>
+
+<body>
+    <h1>3의 배수 찾기</h1>
+    <script>
+        // let num = parseInt(prompt("몇 까지 3의 배수를 찾을까요?"));
+        // let count = 0
+
+        // for(let i = 1; num>=i; i++){
+        //     if(i%3 == 0){
+        //         document.write(i+", ");
+        //         count ++
+        //         }}
+
+        // document.write(`<p>${num}까지의 3의 배수의 개수: ${count} </p>`);
+
+        // if(num == null){
+        //         document.write(" ");
+        //     }
+
+
+
+
+        // 선생님 풀이
+        // 1. 
+        let input = prompt("몇까지 3의 배수를 찾을까요?")
+        let count = 0; //3의 배수를 저장하는 변수
+        let result = "";
+
+        // console.log(input);
+        console.log(input === null);
+
+        if (input !== null) {
+            for (let i = 1; i <= parseInt(input); i++) {
+
+                // 3. 
+                if (i % 3 === 0) {
+                    
+                    result += `${i}, `;
+                    // 4. 
+                    count += 1;
+                    // count ++;
+                    // count = count+1;
+                    // count += 1;
+
+                }}}
+            document.write(result.slice(0,result.length-2));
+            document.write(`<p>${input}까지의 3의 배수의 개수: ${count} </p>`);
+
+
+    </script>
+</body>
+
+</html>

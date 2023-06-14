@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수 var : 데이터를 저장할 수 있는 공간
+        // 변수 선언 키워드: var, let, const
+        // 변수 특징
+        // -데이터를 저장했을 때 자료형이 결정된다.
+        // -선언만 했을 경우 자료형은 undefined이다.
+
+        // 변수선언 *이름 붙이면 된다
+        var num;
+
+        // 변수초기화 -> 자료형이 결정된다! *값을 정해주면 된다
+        num = 10;
+
+        // var의 특징
+        // - 중복 선언이 가능하다(let은 안됨) --> 오류 가능성!
+        // - 변수 호이스팅 (위로 올리는 것)
+        // ㄴ 함수든 변수든 선언된 변수를 맨 위로 올려서 정의하는 방식
+        var num = 15;
+
+        // 변수 선언과 초기화
+        // let의 특징
+        // - 중복 선언이 불가능하다
+        let num1 = 20;
+
+        // const의 특징
+        // -중복선언이 불가능
+        // -새로운 값으로 변경 불가능
+        // * 객체 정의할 때 사용
+        const num2 = 50;
+        // num2 = 55;
+
+
+        // 자료형
+        // 1. 기본타입: string, number, boolean, null, undefined
+        // null과 undefiend의 차이
+        // -null은 데이터가 비어있다는 의미+ object(객체)+ 저장공간 존재
+        // -undefiend: 데이터가 비어있다는 의미 + 자료형x
+        // 2. 참조타입: array, object etc...
+
+        let msg = "Hello, JavaScript"; 
+        // string: 변수 선언에는 let 키워드를 사용하며, 변수 이름으로 msg를 선택했습니다.
+        let number = 15;
+        let numer2 = 3.14;
+        // number는 정수, 실수 모두 가능
+        let isChecked = true; //false
+        // boolean
+        let nullValue = null;
+        let emptyValue; 
+        // undefiend는 선언하는 그 자체
+
+        // 변수출력, 자료형 확인
+        console.log(msg, typeof(msg));
+        console.log(nullValue, typeof(nullValue));
+        console.log(emptyValue, typeof(emptyValue));
+
+
+    </script>   
+</body>
+</html>

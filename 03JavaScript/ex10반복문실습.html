@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 실습문제) 두 숫자를 입력한 후, 해당 범위 숫자를 모두 출력하는 코드를 구현하시오.
+        // ex) 시작할 숫자 입력: 2
+        //      마지막 숫자 입력 : 10 
+        //      출력결과: 2 3 4 5 6 7 8 9 10
+
+        // let start = parseInt(prompt("시작할 숫자 입력"));
+        // let end = parseInt(prompt("마지막 숫자 입력"));
+
+        // for(let i=start; i<=end; i++){
+        //     console.log(i);
+        // }
+
+        //실습문제) 순차적으로 출력되는 모든 숫자를 더한 결과를 출력하는 코드를 구현
+        // ex) 1부터 10까지 총합은 55이다.
+
+        let total = 0;
+        let start = 1;
+        let end = 10;
+
+        for(let i = start; i<=end; i++){
+            total+=i;
+        }
+
+        console.log(`${start}부터 ${end}까지의 총합은 ${total}이다`);
+
+        let sum=0;
+        for(let i=1; i<=10; i++){
+            sum = sum+i;
+        }
+
+        
+
+        </script>
+</body>
+</html>

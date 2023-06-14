@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form 태그 
+     1. placeholder: 미리보기 텍스트
+     2. autofocus: 커서를 자동으로 해당 input 태그에
+     3. maxlength: 입력할 수 있는 글자수 제한
+     4. name: 보내는 곳과 받는 곳에서 해당 정보를 구분하기 위한 key
+     5. value: 해당 정보에 대한 값
+    
+    -->
+    <form action="#" metheod="get">
+        ID: <input type="text" placeholder="ID를 입력하세요" name="userID" autofocus> </br>
+        <!-- Placeholder: hint, autofocus:커서 -->
+        PW: <input type="password" maxlength="10" name="userPW"> </br>
+        <!-- maxlength: 메모리 효율 및 사용자가 틀렸음을 인지하는 용도 -->
+        주소: <input type="text" name="userAddr"> </br>
+        <!-- 비밀번호는 method="post"가 보안적으로 더 안전하다 -->
+
+        <br><br>
+        <!-- checkbox -->
+        점심으로 먹고 싶은 메뉴는? <br>
+
+        <input type="checkbox" name="menu" value="한식"> 한식 
+        <input type="checkbox" name="menu" value="중식"> 중식
+        <input type="checkbox" name="menu" value="양식"> 양식
+        <input type="checkbox" name="menu" value="일식"> 일식
+        <input type="checkbox" name="menu" value="분식"> 분식
+
+
+    <!-- name과 value 속성은 폼 데이터의 식별과 값을 설정하는 데 사용
+    name은 서버 측에서 필드를 식별. value는 초기값을 설정하거나 사용자의 입력값을 저장하는 데 사용 -->
+
+    <!-- radio button 
+    name을 동일한 값으로 설정하면 radio 중 하나만 선택됨-->
+
+    <br><br>
+    성별을 선택하세요
+    <input type = "radio" name="gender" value="male">남성
+    <input type = "radio" name="gender" value="female">여성
+
+
+    <!-- selector 
+    Selct & option-->
+
+    <br><br>
+    혈액형을 선택하세요
+    <select>
+        <option value="A형">A형</option>
+        <option value="B형">B형</option>
+        <option value="AB형">AB형</option>
+        <option value="O형">O형</option>
+
+    </select>
+
+    <br><br>
+    <!-- text area -->
+    <textarea rows="5" cols="30"></textarea>
+
+    <!-- 그 외 여러가지 태그들 -->
+    <input type="file"> <br><br>
+    <input type="color"> <br><br>
+    <input type="number"> <br><br>
+    <input type="range"> <br><br>
+    <input type="date"> <br><br>
+
+    <input type="submit">
+    <input type="reset">
+
+
+</form>
+
+</body>
+</html>
