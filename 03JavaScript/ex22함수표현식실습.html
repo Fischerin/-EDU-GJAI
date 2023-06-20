@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //실습문제) 이모지와 숫자를 입력받은 후 정사각형 모양을 출력하는 square()를 구현해보기
+        // 
+        //
+        // '❤️', 3을 입력햇을 때 아래와 같이 웹 페이지에 출력하기
+        // *웹 페이지 출력 : document.write() 사용 / 줄바꿈은 '<br>' 사용
+        //
+        //
+        // ❤️❤️❤️
+        // ❤️❤️❤️
+        // ❤️❤️❤️
+
+        // 나의 풀이
+        // let square(x);
+        // return ❤️x3
+
+        // result = square(1<br>1<br>1)
+        // document.write(result);
+
+
+        let square = function(emoji, count){
+            for(let j=0; j<count; j++){ //행
+                for(let i=0; i<count; ++i){ //열
+                    document.write(emoji);
+                }
+                document.write("<br>");
+            }
+        
+        }
+
+        square("😒", 5);
+
+    </script>
+</body>
+</html>
