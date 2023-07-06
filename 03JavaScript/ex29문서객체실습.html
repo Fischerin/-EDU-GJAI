@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="counting">카운팅 기능 만들어보기</h1>
+    <div>count: <span id = "count">0</span></dic>
+    <button id="plus" onclick="increaseTextContent()">증가</button>
+    <button id="minus" onclick="decreaseTextContent()">감소</button>
+
+
+    <script>
+        // //버튼을 클릭했을 때, 증가 또는 감소되도록 구현해보기!
+        // const plus = document.getElementById("plus")
+        // const minus = document.getElementById("minus")
+        // const count = document.getElementById("count")
+
+        // // plus.addEventListener("click", increaseTextContent);
+        // // minus.addEventListener("click", decreaseTextContent);
+
+        // function increaseTextContent() {
+        //     count.innerText = parseInt(count.innerText)+1;
+        // }
+
+        // function decreaseTextContent(){
+        //     count.innerText = parseInt(count.innerText)-1;
+        // }
+
+        const count = document.getElementById("count");
+        const btns = document.getElementsByTagName("button");
+
+        btns[0].addEventListener("click", ()=>{
+            //span요소의 숫자를 +1증가하는 로직 구현
+            //연산 결과를 다시 웹페이지에 출력
+            count.innerText= parseInt(count.innerText)+1;
+        });
+
+
+    </script>
+
+</body>
+</html>

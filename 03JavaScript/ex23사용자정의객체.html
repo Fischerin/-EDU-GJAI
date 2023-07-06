@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //객체(object)
+        //-여러 속송(property)을 하나의 변수에 저장할 수 있는 자료형
+        // - key/value 구조
+        // ex) let obj = {key:value, key:value,...}
+        // - 자바스크립트의 객체 형태는 데이터포맷 중에서 JSON형식과 동일한 구조
+
+        //사람을 표현할 수 있는 객체를 생성해보기 
+        //: 이름(name), 나이(age), 성별(gender), 
+        let person = {
+            name:"임명진",
+            age:21,
+            gender:"남성",
+            favoriteFood:["돈까스", "떡볶이", "김치찜", "제육볶음"],
+            walking:function(){
+                console.log("걷는중");
+            }
+
+        }
+        // 객체정보 출력해보기
+        console.log(person);
+
+        //객체정보 중 성별만 출력해보기
+        //속성에 접근할 때 .를 이용하면 하나씩 접근이 가능하다!
+        console.log(person.gender);
+        console.log(person.name);
+        console.log(person.age);
+
+        //좋아하는 음식 출력해보기
+        console.log(person.favoriteFood[0]);
+    </script>
+</body>
+</html>

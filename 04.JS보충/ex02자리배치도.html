@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 인원수와 줄에 맞게 자리를 배치해보자! 
+        
+        [조건문]
+        1. 사용자에게 총 인원수를 입력받는다. 
+            => 현재 인원은 몇명인가요? 
+        2. 가로로 한줄에 몇명이 앉을지 입력받는다.
+            => 한 줄에 몇명씩 앉나요? 
+        3. 1,2에서 받은 결과에 따라서 총 몇줄이 나올지 결과를 얻는다. 
+            => ex) 30명 / 5명 => 6줄 
+                    31명 / 5명 => 7줄 
+
+        4. 나온 결과를 문서에 출력해보자 
+            => 현 인원은 32명이고, 한 줄에 5명씩 앉겠습니다.
+                총 7줄이 생성됩니다.
+                
+                   
+        */ 
+
+        let memNum = Number(prompt("현재 인원은 몇 명 인가요?")) 
+        let colNum = Number(prompt("한 줄에 몇 명씩 앉나요?")) //Number: 그값을 그대로 숫자로 변경해줌
+        let rowNum=0; //1)
+        // 자바스크립트는 동적타입언어 그러므로 int나 string으로 구분하는 것이 아니라,
+        // 가장 먼저 들어온 값으로 초기화된다.
+        // c나 자바는 무슨 타입 언어?
+        let seatNum = 1;
+
+        if (memNum % colNum == 0){
+            rowNum = parseInt(memNum/colNum)
+
+        }else {
+            rowNum = parseInt(memNum/colNum)+1
+        }
+
+        document.write(`현 인원은 ${memNum}이고, 한 줄에 ${colNum}명씩 앉겠습니다. 
+                             총 ${rowNum}줄이 생성됩니다`);
+
+        
+        document.write('<table border = "1">')
+        for(let i=1; i<=rowNum; i++){
+            document.write('<tr>') //tr? 한 줄!
+            document.write(i+'줄');
+
+            for(let j=1; j<=colNum; j++){
+                document.write(`<td>좌석${seatNum}</td>`) //td? 한 칸! 글자 넣어주고 seatNum을 붙인다.
+                seatNum ++; //++증가!
+                document.write(j+'칸');
+
+            }
+            document.write('</tr>')
+        } 
+        document.write('</table>') //표를 만든다 => table //border = "1"
+
+
+
+
+        // 
+        // let memNum = prompt("현재 인원은 몇 명 인가요?") 
+        // let colNum = prompt("한 줄에 몇 명씩 앉나요?")
+
+        //     if(memNum % colNum == 0){
+        //          
+        //         document.write(`현 인원은 ${memNum}이고, 한 줄에 ${colNum}명씩 앉겠습니다. 
+        //                     총 ${??}줄이 생성됩니다`);
+
+        //     }else{
+            
+        //         document.write(`현 인원은 ${memNum}이고, 한 줄에 ${colNum}명씩 앉겠습니다. 
+        //                     총 ${??+1}줄이 생성됩니다`);
+        //     }
+
+        // }
+
+
+
+    </script>
+</body>
+</html>

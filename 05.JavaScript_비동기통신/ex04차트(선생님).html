@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dashboard{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: auto;
+        }
+        div{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dashboard">
+      <div>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+      <div>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div>
+        <canvas id="radarChart"></canvas>
+      </div>
+      <div>
+        <canvas id="polarChart"></canvas>
+      </div>
+    </div> 
+
+      <script src="./js/jquery-3.7.0.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        let dateArr = []; //날짜를 저장하는 배열
+        let elecDataArr = []; //전기생산량을 저장하는 배열
+
+        //전기생산량 데이터를 요청하는 함수
+        const getPublicData = ()=>{
+          const reqURL = "https://apis.data.go.kr/B553734/iseelectricprod/getElectricProduction?serviceKey=인증키&returnType=json&numOfRows=30&pageNo=1";
+
+          $.ajax({
+            url:reqURL,
+            success:(result)=>{
+              console.log(result.body.items.item);
+
+              let itemList = result.body.items.item;
+
+              //서부지사 전기생산량 데이터 가져오기
+              // - 날짜(dates), 전기생산량(elecprodqty)
+              for(let i=0; i<itemList.length; i++){
+                if(itemList[i].branchNm === "서부지사"){
+
+                  //날짜와 전기생산량을 각 배열에 저장하기!
+                  dateArr.push(itemList[i].dates);
+                  elecDataArr.push(itemList[i].elecprodqty);
+
+                }
+              }//end
+
+              
+
+            },
+            error:()=>{
+              alert("요청오류..");
+            }
+          });
+        }
+
+        const drawChart = (target, chartType, dateArr, elecDataArr)=> {
+
+            const ctx = document.getElementById(target);
+      
+            new Chart(ctx, {
+            type: chartType,
+            data: {
+                labels: dateArr,
+                datasets: [{
+                label: 'bar chart',
+                data: elecDataArr,
+                borderWidth: 5
+                }]
+            },
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            }
+            });
+
+        }
+      
+        //전기생산량 데이터 요청 함수 실행
+        getPublicData();
+
+        //
+        setTimeout(()=>{
+
+          //그래프 그리는 함수 실행
+          drawChart("barChart", "bar", dateArr, elecDataArr);
+          drawChart("lineChart","line", dateArr, elecDataArr);
+          drawChart("doughnutChart","doughnut", dateArr, elecDataArr);
+          drawChart("pieChart","pie", dateArr, elecDataArr);
+          drawChart("radarChart", "radar", dateArr, elecDataArr);
+          drawChart("polarChart","polarArea", dateArr, elecDataArr);
+
+        },3000);
+
+        
+      </script>
+</body>
+</html>
