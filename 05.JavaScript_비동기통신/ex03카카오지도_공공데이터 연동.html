@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,4 +150,157 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="map" style="width:500px;height:400px;"></div>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c53957a357f2823d85dbb68332b5f37d"></script>
+    <script src="js/jquery-3.7.0.js"></script>
+
+    <script>
+
+
+
+        let positions = [];  // 관광지 정보를 객체형태로 저장하는 배열
+
+        const getPublicData = () => {
+            const tourURL = "http://apis.data.go.kr/6290000/tourdestbaseinfo/gettourdestbaseinfo?serviceKey=rEMObk2MoIaoKndER3o5UUk4Mm%2BBrHGLJgjNWrdPM50jdHNABZ4%2Fc4TZxJGJdpiTMocpvmkYK6RHpvHF4rJBOQ%3D%3D&type=json";
+
+
+            $.ajax({
+                url: tourURL,
+                success: (result) => {
+                    console.log(result);
+
+                    /*
+                        [관광지데이터에서 가져올 항목]
+                        1. 주소
+                        - 지번(addrJibun)
+                        - 도로명(addrRoad)
+                        2. 위경도(lat, lng)
+                        3. 인트로정보(tourDestIntro)
+                        4. 장소명(tourDestNm)
+                    */
+                    // 1.위 정보들을 하나의 객체로 만들기
+                    // 2.객체화된 데이터를 positions 배열에 저장하기
+                    // 3.positions 배열을 콘솔창에 출력하기 
+
+                    let tourList = result.TourDestBaseInfo;
+
+                    for (let i = 0; i < tourList.length; i++) {
+                        positions.push({
+                            content: `<div>
+                                <strong>${tourList[i].tourDestNm}</strong>
+                                <p>${tourList[i].addrRoad === "" ? tourList[i].addJibun : tourList[i].addrRoad}</p> 
+                                <p>${tourList[i].tourDestIntro}</p>
+                            </div>`,
+                            latlng: new kakao.maps.LatLng(Number(tourList[i].lat), Number(tourList[i].lng))
+
+                        });
+
+                    }
+
+
+                    console.log(positions);
+
+                    for (let i = 0; i < positions.length; i++) {
+                        // 마커를 생성합니다
+                        let marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions[i].latlng // 마커의 위치
+                        });
+
+                        // 마커에 표시할 인포윈도우를 생성합니다 
+                        let infowindow = new kakao.maps.InfoWindow({
+                            content: positions[i].content // 인포윈도우에 표시할 내용
+                        });
+
+                        // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                        // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                        // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+
+                    }
+
+
+                
+
+
+
+            },
+                error: () => {
+                    alert("공공데이터 요청 실패..");
+                }
+
+
+            });
+        }
+
+
+
+
+
+
+        // var positions = [
+        //     {
+        //         content: '<div>동구청</div>',
+        //         latlng: new kakao.maps.LatLng(35.145811, 126.923461)
+        //     },
+        //     {
+        //         content: '<div>조선대 치과병원</div>',
+        //         latlng: new kakao.maps.LatLng(35.144354, 126.926908)
+        //     },
+        //     {
+        //         content: '<div>동구청 앞 교차로 </div>',
+        //         latlng: new kakao.maps.LatLng(35.145190, 126.921432)
+        //     },
+        //     {
+        //         content: '<div>전일빌딩</div>',
+        //         latlng: new kakao.maps.LatLng(35.148319, 126.918975)
+        //     }
+        // ];
+
+
+        let container = document.getElementById('map');
+        let options = {
+            center: new kakao.maps.LatLng(35.146809, 126.922290),
+            level: 5 //zoom
+        };
+
+        let map = new kakao.maps.Map(container, options); // 지도를 생성합니다
+
+        //광주 관광지 데이터 요청하기
+        getPublicData();
+
+
+        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+        function makeOutListener(infowindow) {
+            return function () {
+                infowindow.close();
+            };
+        }
+        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+        function makeOverListener(map, marker, infowindow) {
+            return function () {
+                infowindow.open(map, marker);
+            };
+        }
+
+
+
+    </script>
+</body>
+
+>>>>>>> 9368574a9d1b33bc0f6f924f28b8651bfbc78727
 </html>

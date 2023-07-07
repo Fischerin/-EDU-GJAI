@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,4 +146,153 @@
         
       </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #dashboard{
+        display: flex;
+        flex-wrap: wrap; 
+        /* 화면이 줄어들면 자연스럽게 내려가도록 wrap */
+        width: auto;
+      }
+      div{
+        width: 500px;
+      }
+    </style>
+</head>
+<body>
+  <!-- 6개 그리고 큰태그로 감싼다.  -->
+    <div id="dashboard">
+      <div>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+      <div>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div>
+        <canvas id="radarChart"></canvas>
+      </div>
+      <div>
+        <canvas id="polarChart"></canvas>
+      </div>
+    </div> 
+
+
+      <script src="./js/jquery-3.7.0.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      
+      <script>
+        let dateArr = []; //날짜 저장하는 배열
+        let elecArr = []; //전기 생산량을 저장하는 배열
+
+          const getPublicData= () => {
+            const reqURL = "https://apis.data.go.kr/B553734/iseelectricprod/getElectricProduction?serviceKey=rEMObk2MoIaoKndER3o5UUk4Mm%2BBrHGLJgjNWrdPM50jdHNABZ4%2Fc4TZxJGJdpiTMocpvmkYK6RHpvHF4rJBOQ%3D%3D&returnType=json&numOfRows=30&pageNo=1";
+
+            $.ajax({
+              url:reqURL,
+              success:(result) => {
+                console.log(result.body.items.item);
+
+                let itemList = result.body.items.item;
+
+                //서부지사 전기생산량 데이터 가져오기
+                // - 날짜(dates), 전기생산량(elecprodquty)
+
+                let dateArr = []; //날짜 저장하는 배열
+                let elecArr = []; //전기 생산량을 저장하는 배열
+
+                for(let i=0; i<itemList.length; i++){
+                  if(itemList[i].branchNm ==="서부지사"){
+
+
+                    //날짜와 전기 생산량을 각 배열에 저장하기!
+                    dateArr.push(itemList[i].dates);
+                    elecArr.push(itemList[i].elecprodqty);
+
+                    //날짜 저장하는 배열에 push에 넣어준다 
+                    // 내용은 반복문 itemList[i] 안에 하고 for문 밖에서 log로 출력
+
+                  
+
+                    
+
+                  }
+                }
+
+
+
+                console.log(dateArr);
+                console.log(elecArr);
+              },
+              error:()=>{
+                alert("요청오류");
+              }
+            });
+
+
+
+
+          }
+          getPublicData(); //이걸 써야 데이터를 불러옴!
+
+          setTimeout(() => {
+
+                drawChart("barChart", "bar", dateArr, elecArr) //3. 여기서 수정! for문 완료 후 그래프 그리기
+                drawChart("lineChart", "line", dateArr, elecArr)
+                drawChart("doughnutChart", "doughnut", dateArr, elecArr)
+                drawChart("pieChart", "pie", dateArr, elecArr)
+                drawChart("radarChart", "radar", dateArr, elecArr)
+                drawChart("polarChart", "polarArea", dateArr, elecArr)
+          }, 3000);
+
+        
+          
+
+
+
+
+
+        // 1. 차트 6개 만들기 위해서 변수와 함수 설정!
+        const drawChart = (target, chartType, dateArr, elecArr) => { //함수! 복잡한 수많은 코드를 함축적으로 쓰려고 혹은 코드 재사용
+       
+          const ctx = document.getElementById(target); //2. id와 type에 각각 매개변수를 넣어준다!
+
+          new Chart(ctx, {
+            type: chartType, //pie, line, bar ...
+            data: {
+              labels: dateArr, //x축, 배열형태
+              datasets: [{
+                label: 'bar chart', //표에 제목 정의
+                data: elecArr, //y축, x축과 개수가 맞아야 한다.
+                borderWidth: 5 //선의 두께
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+
+
+
+        }
+        
+      </script>
+</body>
+>>>>>>> 9368574a9d1b33bc0f6f924f28b8651bfbc78727
 </html>

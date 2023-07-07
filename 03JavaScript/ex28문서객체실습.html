@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,4 +46,53 @@
     </script>
     
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="tit">클릭 한 번 해볼까요?</h1>
+    <div id="content"></div>
+    <button id="btnH1">h1태그 생성</button>
+    <button id="btnA">a태그 생성</button>
+    <button id="btnU1">ul태그 생성</button>
+
+    <script>
+        //1. 사용할 요소의 객체를 모두 변수에 저장하기
+        const tit = document.getElementById("tit")
+        const content = document.getElementById("content")
+        const btnH1 = document.getElementById("btnH1")
+        const btnA = document.getElementById("btnA")
+        const btnU1 = document.getElementById("btnU1")
+
+
+        // 2. 객체를 활용해서 변경할 혹은 추가할 로직을 구현하기
+        btnH1.addEventListener("click", () => {
+            tit.innerText = "DOM활용해보기";
+        });
+
+        btnA.addEventListener("click", () => {
+            content.innerHTML = "<a href = 'https://www.google.com'>> GOOGLE로 가보자!";
+        });
+
+        btnU1.addEventListener("click", () => {
+            content.innerHTML = `
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                <ul>
+            
+            `;
+        });
+
+
+    </script>
+    
+</body>
+>>>>>>> 9368574a9d1b33bc0f6f924f28b8651bfbc78727
 </html>
